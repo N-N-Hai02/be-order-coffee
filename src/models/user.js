@@ -13,17 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsTo(models.Group) // user => group : 1 - 1
       // User.belongsToMany(models.Project, { through: 'Project_User' }) // user => project: 1 - n and project => user: 1 - n <--> n - n
-      User.belongsToMany(models.Vocal, { through: 'User_Vocal', foreignKey: 'userId' })
     }
   };
   User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    username: DataTypes.STRING,
-    address: DataTypes.STRING,
-    sex: DataTypes.STRING,
+    name: DataTypes.STRING,
     phone: DataTypes.STRING,
-    groupId: DataTypes.INTEGER
+    password: DataTypes.STRING,
+    groupId: DataTypes.INTEGER,
+    coffeeName: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',
