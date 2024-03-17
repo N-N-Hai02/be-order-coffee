@@ -4,7 +4,7 @@ import { hashUserPassword, checkEmailExist, checkPhoneExist} from './loginRegist
 const getAllUser = async () => {
     try {
         let users = await db.User.findAll({
-            attributes: ['id', "username", "email", "phone", 'sex'],
+            attributes: ['id', "name", "email", "phone", 'coffeeName'],
             include: { model: db.Group, attributes: ["name", "description"] },
         })
         if (users) {
@@ -34,7 +34,7 @@ const getUserWithPagination = async (page, limit) => {
     try {
         let offset = (page - 1) * limit
         const { count, rows } = await db.User.findAndCountAll({
-            attributes: ["id", "username", "email", "phone", "sex", "address"],
+            attributes: ["id", "name", "email", "phone", "coffeeName"],
             include: { model: db.Group, attributes: ["id","name", "description"]},
             order: [["id", "DESC"]],
             offset: offset,
@@ -116,9 +116,9 @@ const updateUser = async (data) => {
         if (user) {
             // update
             await user.update({
-                username: data.username,
-                address: data.address,
-                sex: data.sex,
+                name: data.name,
+                coffeeName: data.coffeeName,
+                phone: data.phone,
                 groupId: data.groupId
             })
             return {
