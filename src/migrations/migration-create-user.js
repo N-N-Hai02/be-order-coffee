@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
       phone: {
         type: Sequelize.STRING
       },
@@ -21,7 +24,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       coffeeName: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

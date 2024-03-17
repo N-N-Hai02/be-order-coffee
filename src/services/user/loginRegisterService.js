@@ -70,9 +70,10 @@ const registerNewUser = async (rawUserData) => {
         // create new user
         await db.User.create({
             email: rawUserData.email,
-            username: rawUserData.username,
+            name: rawUserData.name,
             phone: rawUserData.phone,
             password: hashPassword,
+            coffeeName: rawUserData.coffeeName || "Default coffee",
             groupId: 1
         })
 
@@ -112,7 +113,8 @@ const handleUserLogin = async (rawData) => {
                 let payload = {
                     email: user.email,
                     groupWithRoles,
-                    username: user.username
+                    name: user.name,
+                    coffeeName: user.coffeeName
                 }
                 let token = createJWT(payload)
                 return {
@@ -122,7 +124,8 @@ const handleUserLogin = async (rawData) => {
                         access_token: token,
                         groupWithRoles,
                         email: user.email,
-                        username: user.username
+                        name: user.name,
+                        coffeeName: user.coffeeName
                     }
                 }
             }

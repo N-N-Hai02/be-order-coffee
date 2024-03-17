@@ -12,7 +12,7 @@ const router = express.Router()
 const initApiRoutes = (app) => {
     // rest full API
     // CRUD : Create - Read - Update - Delete => POST - GET - PUT - DELETE
-    router.all('*', checkUserJWT, checkUserPermission); // check middleware..
+    // router.all('*', checkUserJWT, checkUserPermission); // check middleware..
 
     router.post('/user/register', apiController.handleApiRegister)
     router.post('/user/login', apiController.handleApiLogin)
