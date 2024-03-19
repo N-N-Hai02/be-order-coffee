@@ -1,29 +1,23 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Vocal', {
+    await queryInterface.createTable('Employee', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      en: {
+      name: {
         type: Sequelize.STRING
       },
-      vn: {
+      sdt: {
         type: Sequelize.STRING
       },
-      spelling: {
+      cccd: {
         type: Sequelize.STRING
       },
-      example_en: {
-        type: Sequelize.STRING
-      },
-      example_vn: {
-        type: Sequelize.STRING
-      },
-      levelId: {
+      userId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -37,6 +31,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Vocal');
+    await queryInterface.dropTable('Employee');
   }
 };

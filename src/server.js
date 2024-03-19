@@ -33,4 +33,4 @@ initWebRoutes(app)
 // init API route
 initApiRoutes(app)
 
-app.listen(PORT, () => {console.log(">>> JWT is running - " + PORT)})
+app.listen(PORT, () => {console.log(">>> manage-coffee is running - " + PORT)})
